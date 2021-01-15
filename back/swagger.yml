@@ -1,0 +1,34 @@
+openapi: 3.0.0
+info:
+  title: Battleships API
+  description: asdasd
+  version: 0.1.0
+
+servers:
+  - url: http://0.0.0.0:5000
+
+
+paths:
+  /game:
+    get:
+      operationId: 'api.game.game.init'
+      tags:
+        - 'Game'
+      summary: Returns an array filled with None, game ID
+      description: asdasd
+      responses:
+        '200':
+          description: "Successful game init"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    game_id:
+                      type: 'uuid'
+                    game_grid:
+                      type: 'array'
+                    timestamp:
+                      type: 'string'
+  

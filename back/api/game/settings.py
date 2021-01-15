@@ -1,0 +1,35 @@
+TESTING = True
+
+if TESTING:
+    # Game
+    GAME_GRID_SIZE = 10
+
+    # Ships
+    NUM_CARRIER = 1
+    NUM_BATTLESHIP = 0
+    NUM_CRUISER = 0
+    NUM_SUBMARINE = 1
+    NUM_DESTROYER = 1
+
+    LEN_CARRIER = 6
+    LEN_BATTLESHIP = 4
+    LEN_CRUISER = 3
+    LEN_SUBMARINE = 3
+    LEN_DESTROYER = 2
+
+else:
+    # Game
+    GAME_GRID_SIZE = 10
+
+    # Ships
+    NUM_CARRIER = 1
+    NUM_BATTLESHIP = 2
+    NUM_CRUISER = 2
+    NUM_SUBMARINE = 1
+    NUM_DESTROYER = 4
+    
+    LEN_CARRIER = 6
+    LEN_BATTLESHIP = 4
+    LEN_CRUISER = 3
+    LEN_SUBMARINE = 3
+    LEN_DESTROYER = 2
