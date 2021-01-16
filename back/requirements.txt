@@ -1,4 +1,4 @@
 numpy
 flask
+flask-restplus
 flask_cors
-connexion

@@ -9,7 +9,7 @@ import uuid
 
 class Game:
     def __init__(self):
-        self.id     = uuid.uuid1()
+        self.id     = str(uuid.uuid1())
         self.size   = settings.GAME_GRID_SIZE
         self.grid   = [[None for i in range(self.size)] for j in range(self.size)]
         self.ships  = []
@@ -94,22 +94,34 @@ class Game:
         return repr(self.grid)
     
 
+ACTIVE_GAMES = {}
+
 def get_timestamp():
     return datetime.now().strftime(("%Y-%m-%d %H:%M:%S"))
 
-def init():
+def start():
     game = Game()
     game.create_ships()
     game.place_ships()
 
-    return [
-        {
-            "game_id": game.id,
-            "game_grid": game.grid,
-            "timestamp": get_timestamp()
-        }
-    ]
+    ACTIVE_GAMES[game.id] = game
+    print(ACTIVE_GAMES)
+
+    return {
+                "gameId": str(game.id),
+                "gameGrid": game.grid,
+                "timestamp": get_timestamp()
+            }
     
+    
+def end(game_id):
+    if game_id in ACTIVE_GAMES:
+        del ACTIVE_GAMES[game_id]
+        status = f'REMOVED gameId: {game_id}'
+    else: status = f'DOES NOT EXIST gameId: {game_id}'
+
+    return { "status": f"{status}" }
+
 
 if __name__ == '__main__':
     import settings
