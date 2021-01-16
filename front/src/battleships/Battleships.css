@@ -1,0 +1,55 @@
+body {
+    font: 14px;
+    margin: 5%;
+}
+
+.board-row:after {
+    clear: both;
+    content: '';
+    display: table;
+}
+
+.square-enemy {
+    background: rgb(45, 130, 170);
+    float: left;
+    font-size: 18px;
+    height: 34px;
+    text-align: center;
+    width: 34px;
+    border: black;
+    border-width: 1px;
+}
+
+.square-enemy:hover {
+    background: rgb(108, 192, 231);
+}
+
+.square-my {
+    background: rgb(6, 56, 80);
+    float: left;
+    font-size: 18px;
+    height: 25px;
+    text-align: center;
+    width: 25px;
+}
+
+
+.game {
+    display: flex;
+    flex-direction: row;
+    margin: 2%;
+}
+
+.game-board {
+    margin: 2%;
+}
+
+.game-button {
+    float: left;
+    margin-left: 2%;
+    width: 40%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    height:25px;
+    overflow:auto;
+}
