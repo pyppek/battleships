@@ -33,3 +33,7 @@ else:
     LEN_CRUISER = 3
     LEN_SUBMARINE = 3
     LEN_DESTROYER = 2
+
+HIT = 'X'
+MISS = '-'
+BOMBED = HIT

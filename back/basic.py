@@ -26,5 +26,18 @@ class MainClass(Resource):
             print(response)
             return response
 
+    @namespace.route('/game/bomb')
+    class Bomb(Resource):
+        def get(self):
+            game_id = request.args.get('gameId')
+            player_id = request.args.get('playerId')
+            response = game.request_bomb(game_id, player_id)
+            return response
+
+        def post(self):
+            data = json.loads(request.data)['params']
+            response = game.post_bomb(data)
+            return response
+
 if __name__ == '__main__':
     flask_app.run(host='0.0.0.0', port=5000, debug=True)
