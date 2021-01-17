@@ -142,7 +142,7 @@ class Game extends React.Component {
                             squareClass='square-enemy'
                         />
                     </div>
-                    <div className='game-board-my'>
+                    <div className='game-board'>
                         <Board 
                             onClick={() => console.log('These are your squares!')}
                             squareClass='square-my'

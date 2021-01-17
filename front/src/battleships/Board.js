@@ -5,7 +5,7 @@ import './Battleships.css';
 
 class Board extends Component {
   renderSquare(i, j) {
-    const value = this.props.gameHasStarted ? this.props.squares[i][j] : '';
+    let value = this.props.gameHasStarted ? this.props.squares[i][j] : '*';
     const index = i * 10 + j;
     
     return (

@@ -16,8 +16,15 @@ body {
     height: 34px;
     text-align: center;
     width: 34px;
-    border: black;
-    border-width: 1px;
+}
+
+.square-enemy-hit {
+    background: rgb(196, 67, 67);
+    float: left;
+    font-size: 18px;
+    height: 34px;
+    text-align: center;
+    width: 34px;
 }
 
 .square-enemy:hover {
@@ -25,14 +32,22 @@ body {
 }
 
 .square-my {
-    background: rgb(6, 56, 80);
+    background: rgb(155, 205, 228);
     float: left;
     font-size: 18px;
-    height: 25px;
+    height: 34px;
     text-align: center;
-    width: 25px;
+    width: 34px;
 }
 
+.square-my-hit {
+    background: rgb(189, 34, 34);
+    float: left;
+    font-size: 18px;
+    height: 34px;
+    text-align: center;
+    width: 34px;
+}
 
 .game {
     display: flex;

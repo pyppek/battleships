@@ -11,41 +11,63 @@ class Game extends Component {
     super(props);
     this.state = {
       gameHasStarted: false,
-      squares: [],
+      gameId: null,
+      playerId: null,
+      myTurn: false,
+      mySquares: [],
+      enemySquares: [],
     }
 
     this.startGame = startGame.bind(this)
     this.endGame = endGame.bind(this)
   }
 
-    render() {
-      return (
-        <React.Fragment>
-          <section className='game-info'>
-            <div>status</div>
-          </section>
-          <section className='game'>
-            <div className='game-board'>
-              <Board 
-                squares={this.state.squares}
-                onClick={(row, column) => handleOnClick(row, column)}
-                squareClass='square-enemy'
-              />  
-            </div>
-            <div className='game-board'>
+  
+  render() {
+    const {
+      gameHasStarted,
+      gameId,
+      myTurn,
+      mySquares,
+      enemySquares,
+      playerId,
+    } = this.state;
+
+    return (
+      <React.Fragment>
+        <section className='game-info'>
+          <div>
+            game: {gameHasStarted ? 'on' : 'no'}<br></br>
+            gameID: {gameId}<br></br>
+            playerID: {playerId}<br></br>
+            turn: {myTurn ? 'You' : 'Enemy'}<br></br>
+          </div>
+        </section>
+        <section className='game'>
+          <div className='game-board'>
             <Board 
-                onClick={() => console.log('These are your squares!')}
-                squareClass='square-my'
-              /> 
-            </div>
-          </section>
-          <section>
-            <button className='game-button' onClick={() => this.startGame(this)}>Start Game</button>
-            <button className='game-button' onClick={() => this.endGame(this)}>End Game</button>
-          </section>
-        </React.Fragment>
-      );
-    }
+              gameHasStarted={gameHasStarted}
+              squares={enemySquares}
+              onClick={(row, column) => handleOnClick(this, row, column)}
+              squareClass='square-enemy'
+            />  
+          </div>
+          <div className='game-board'>
+          <Board
+              gameHasStarted={gameHasStarted}
+              squares={mySquares}
+              onClick={() => alert('These are your squares!')}
+              squareClass='square-my'
+            /> 
+          </div>
+        </section>
+        <section>
+          <button className='game-button' onClick={() => this.startGame(this)}>Start Game</button>
+          <button className='game-button' onClick={() => this.endGame(this)}>End Game</button>
+        </section>
+      </React.Fragment>
+    );
+  }
 }
 
 export default Game;
