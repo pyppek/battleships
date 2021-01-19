@@ -5,17 +5,26 @@ import './Battleships.css';
 
 import { handleOnClick } from './events/inputEvents.js'
 import { startGame, endGame } from './requests/requests.js';
+import StatusBar from './StatusBar.js';
 
 class Game extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      gameHasStarted: false,
-      gameId: null,
-      playerId: null,
-      myTurn: false,
-      mySquares: [],
-      enemySquares: [],
+      game: {
+        hasStarted: false,
+        id: null,
+      },
+      player: {
+        hasTurn: false,
+        id: null,
+        squares: [],
+      },
+      enemy: {
+        id: null,
+        squares: [],
+      } 
     }
 
     this.startGame = startGame.bind(this)
@@ -25,37 +34,31 @@ class Game extends Component {
   
   render() {
     const {
-      gameHasStarted,
-      gameId,
-      myTurn,
-      mySquares,
-      enemySquares,
-      playerId,
+      game,
+      player,
+      enemy,
     } = this.state;
 
     return (
       <React.Fragment>
-        <section className='game-info'>
-          <div>
-            game: {gameHasStarted ? 'on' : 'no'}<br></br>
-            gameID: {gameId}<br></br>
-            playerID: {playerId}<br></br>
-            turn: {myTurn ? 'You' : 'Enemy'}<br></br>
-          </div>
-        </section>
+        <StatusBar 
+          game={game}
+          player={player}
+          enemy={enemy}
+        />
         <section className='game'>
           <div className='game-board'>
             <Board 
-              gameHasStarted={gameHasStarted}
-              squares={enemySquares}
+              game={game}
+              player={enemy}
               onClick={(row, column) => handleOnClick(this, row, column)}
               squareClass='square-enemy'
             />  
           </div>
           <div className='game-board'>
-          <Board
-              gameHasStarted={gameHasStarted}
-              squares={mySquares}
+            <Board
+              game={game}
+              player={player}
               onClick={() => alert('These are your squares!')}
               squareClass='square-my'
             /> 

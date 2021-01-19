@@ -5,17 +5,24 @@ import './Battleships.css';
 
 class Board extends Component {
   renderSquare(i, j) {
-    let value = this.props.gameHasStarted ? this.props.squares[i][j] : '*';
-    const index = i * 10 + j;
+    const {
+      game,
+      player,
+      onClick,
+      squareClass,
+    } = this.props
     
+    let value = game.hasStarted ? player.squares[i][j] : '*';
+    const index = i * 10 + j;
+
     return (
       <Square 
         key={index}
         value={value}
         row={i}
         column={j}
-        onClick={() => this.props.onClick(i, j)}
-        squareClass={this.props.squareClass}
+        onClick={() => onClick(i, j)}
+        squareClass={squareClass}
       />
     );
   }
@@ -38,6 +45,7 @@ class Board extends Component {
   }
 
   render() {
+    // TODO status??
     return (
       <div>
         <div className='status'>{this.status}</div>
