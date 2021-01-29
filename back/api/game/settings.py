@@ -1,4 +1,4 @@
-TESTING = True
+TESTING = False
 
 if TESTING:
     # Game
@@ -17,6 +17,12 @@ if TESTING:
     LEN_SUBMARINE = 3
     LEN_DESTROYER = 2
 
+    ID_CARRIER = 1
+    ID_BATTLESHIP = 2
+    ID_CRUISER = 3
+    ID_SUBMARINE = 4
+    ID_DESTROYER = 5
+    
 else:
     # Game
     GAME_GRID_SIZE = 10
@@ -33,6 +39,12 @@ else:
     LEN_CRUISER = 3
     LEN_SUBMARINE = 3
     LEN_DESTROYER = 2
+    
+    ID_CARRIER = 1
+    ID_BATTLESHIP = 2
+    ID_CRUISER = 3
+    ID_SUBMARINE = 4
+    ID_DESTROYER = 5
 
 HIT = 'X'
 MISS = '-'

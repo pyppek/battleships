@@ -21,15 +21,26 @@ SIZE = {
     'DESTROYER' : settings.LEN_DESTROYER,
 }
 
+ID = {
+    'CARRIER'   : settings.ID_CARRIER,
+    'BATTLESHIP': settings.ID_BATTLESHIP,
+    'CRUISER'   : settings.ID_CRUISER,
+    'SUBMARINE' : settings.ID_SUBMARINE,
+    'DESTROYER' : settings.ID_DESTROYER,
+}
+
 class Ship():
-    new_id = itertools.count()
+    #new_id = itertools.count()
     def __init__(self, name, position: list=None):
-        self.id         = next(Ship.new_id)
         self.name       = name
         self.active     = True
         self.position   = position
+        self._set_id()
         self._set_size()
 
+
+    def _set_id(self):
+        exec(f"self.id = ID['{self.name.upper()}']")
 
     def _set_size(self):
         exec(f"self.size = SIZE['{self.name.upper()}']")
