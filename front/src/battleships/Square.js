@@ -1,4 +1,4 @@
-import React from 'react';
+import {useRef} from 'react';
 import './Battleships.css';
 
 const Square = (props) => {
@@ -10,10 +10,22 @@ const Square = (props) => {
     squareClass,
   } = props;
 
+  const btnRef = useRef();
+  const onSquareClick = e => {
+    if(btnRef.current) {
+      onClick(row, column);
+      btnRef.current.setAttribute('disabled', 'disabled');
+    }
+  }
+
+  // TODO enable buttons when new game starts
+  // Now requires page refresh
+
   return (
     <button
       className={value === 'X' ? squareClass + '-hit' : squareClass}
-      onClick={() => onClick(row, column)}
+      ref={btnRef}
+      onClick={() => onSquareClick()}
     >
       {value}
     </button>

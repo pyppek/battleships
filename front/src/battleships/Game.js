@@ -6,6 +6,7 @@ import './Battleships.css';
 import { handleOnClick } from './events/inputEvents.js'
 import { startGame, endGame } from './requests/requests.js';
 import StatusBar from './StatusBar.js';
+import Settings from './Settings.js';
 
 class Game extends Component {
   constructor(props) {
@@ -41,11 +42,15 @@ class Game extends Component {
 
     return (
       <React.Fragment>
-        <StatusBar 
+        <section className='top-bar'>
+          <StatusBar 
           game={game}
           player={player}
           enemy={enemy}
-        />
+          />
+          <Settings />
+        </section>
+        
         <section className='game'>
           <div className='game-board'>
             <Board 

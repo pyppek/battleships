@@ -1,6 +1,7 @@
 body {
     font: 14px;
     margin: 5%;
+    max-width: 780px;
 }
 
 .board-row:after {
@@ -67,4 +68,22 @@ body {
     font-size: 14px;
     height:25px;
     overflow:auto;
+}
+
+.top-bar {
+    background-color: rgb(43, 95, 32);
+    display: flex;
+    flex-direction: row;
+    margin: 2%;
+}
+
+.top-bar-subcontainer {
+    background-color: red;
+    margin: 2%;
+    width: 50%;
+    float: left;
+}
+
+.top-bar-subcontainer-left {
+    text-align: right;
 }

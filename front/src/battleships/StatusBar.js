@@ -9,9 +9,13 @@ const StatusBar = (props) => {
 
   console.log(player)
   return (
-    <section style={{backgroundColor: 'red'}} className='status-container'>
-      <header  className='status-header'>
-        <span>gameID: {game.id}</span>
+    <section className='top-bar-subcontainer'>
+      <header className='status-header'>
+        <span>game: {game.id}</span>
+        <ul>
+          <li>player: {player.id}</li>
+          <li>enemy: {enemy.id ? enemy.id : 'computer'}</li>
+        </ul>
       </header>
     </section>
   )
